@@ -16,12 +16,15 @@ return Application::configure(basePath: dirname(__DIR__))
             'role' => CheckRole::class,
         ]);
         // Добавляем исключения для CSRF
-        $middleware->validateCsrfTokens(except: [
-            'login',
-            '/',
-            'master/requests/*',  // Добавьте это
-            'master/requests/*/status',
-        ]);
+
+        /*Раскоментируйте ниже код, для проверки теста "Гонки"*/
+       // $middleware->validateCsrfTokens(except: [
+         //   'login',
+          //  '/',
+          //  'master/requests/*',
+          //  'master/requests/*/status',
+      //  ]);
+
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
